@@ -1,7 +1,8 @@
-.hello {
-  color: purple;
-}
-
-.font {
-  font-size: 20px;
+.selection {
+  padding: 5px 60px;
+  margin: 20px;
+  background-color: silver;
+  border: none;
+  color: white;
+  outline: none;
 }

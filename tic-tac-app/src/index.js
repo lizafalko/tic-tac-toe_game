@@ -2,28 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function getGreeting(user) {
-  if (user) {
-    return user.firstName + ' ' + user.lastName;
+class ShopSelection extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 'Nike'
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  return <h1>Hello, Stranger!</h1>
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('You favorite shop is ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>Pick you favorite shop: </label>
+        <select className="selection" value={this.state.value} onChange={this.handleChange}>
+          <option value="FootBox">FootBox</option>
+          <option value="Nike">Nike</option>
+          <option value="Reebock">Reebock</option>
+          <option value="Pik">Pik</option>
+          <option value="Vans">Vans</option>
+        </select>
+        <input type="submit" value="Submit" />
+        </form>
+    );
+  }
 }
 
-const user = {
-  firstName: 'Lisa',
-  lastName: 'Floyd'
-};
-
-const element = (
-  <div>
-    <h1 className='hello'>
-      Good Morning, {getGreeting(user)}!
-      </h1>
-      <p className='font'>You can print and draw some pictures here!</p>
-  </div>
-);
-
 ReactDOM.render(
-  element,
+  <ShopSelection />,
   document.getElementById('root')
 );
