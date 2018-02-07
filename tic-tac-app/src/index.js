@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { Button } from './button.js';
 
 class ShopSelection extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: 'Nike'
-    };
+    this.state = { value: 'Nike' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,7 +38,7 @@ class ShopSelection extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <ShopSelection />,
-  document.getElementById('root')
-);
+// ReactDOM.render(
+//   <Button />,
+//   document.getElementById('root')
+// );
